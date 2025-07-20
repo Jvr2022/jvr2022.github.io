@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon | JVR2022</title>
+    <title>jvr2022 - Developer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
         :root {
-            --primary-color: #ffffff;
-            --secondary-color: #c0c0c0;
-            --accent-color: #61dafb;
-            --bg-gradient-start: #1a1a2e;
-            --bg-gradient-end: #16213e;
-            --container-bg: rgba(40, 40, 70, 0.3);
+            --bg-color: #121212;
+            --surface-color: #1e1e1e;
+            --primary-color: #00A2FF;
+            --text-color: #E0E0E0;
+            --text-secondary: #a0a0a0;
+            --border-color: #2a2a2a;
         }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
         * {
             margin: 0;
@@ -22,139 +23,489 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
-            color: var(--primary-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .wip-banner {
+            background-color: #252525;
+            color: var(--text-secondary);
             text-align: center;
-            overflow-x: hidden;
-            padding: 20px;
+            padding: 0.75rem 2rem;
+            position: sticky;
+            top: 70px;
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            transition: transform 0.3s ease-out;
+        }
+        
+        .wip-banner p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .wip-banner .close-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            line-height: 1;
+            cursor: pointer;
+            margin-left: 1rem;
+            transition: color 0.2s ease;
+        }
+
+        .wip-banner .close-btn:hover {
+            color: var(--text-color);
         }
 
         .container {
-            max-width: 700px;
-            padding: 40px 30px;
-            background-color: var(--container-bg);
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInSlideUp 1s ease-out 0.5s forwards;
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 2rem;
+            overflow: hidden;
         }
 
-        @keyframes fadeInSlideUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        nav .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        #hero {
+            min-height: calc(100vh - 70px);
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        #hero .hero-content {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        #hero img.profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-color);
+            margin-bottom: 1.5rem;
+            background: var(--surface-color);
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        #hero h1 span {
+            color: var(--primary-color);
+        }
+
+        #hero p.subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--primary-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            border: 2px solid var(--primary-color);
+        }
+
+        section {
+            padding: 6rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 4rem auto;
+        }
+        
+        .section-title span {
+            color: var(--primary-color);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .skill-item {
+            background: var(--surface-color);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 162, 255, 0.1);
+        }
+
+        .skill-item i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .skill-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-item p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .project-entry {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+        
+        .project-entry:last-child {
+            margin-bottom: 0;
+        }
+        
+        .project-entry.reverse {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .project-entry.reverse .project-image {
+            order: 2;
+        }
+        
+        .project-image img {
+            width: 100%;
+            border-radius: 10px;
+            background: var(--surface-color);
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+        
+        .project-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .project-text .tag {
+            display: inline-block;
+            background: rgba(0, 162, 255, 0.1);
+            color: var(--primary-color);
+            padding: 0.3rem 0.7rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .project-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        #contact {
+            text-align: center;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            color: var(--text-secondary);
+        }
+        
+        @media(max-width: 768px) {
+            nav {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+            }
+            #hero {
+                padding-top: 2rem;
+                min-height: calc(100vh - 125px); /* Adjust hero height for stacked nav */
+            }
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+            .project-entry, .project-entry.reverse {
+                grid-template-columns: 1fr;
+            }
+            .project-entry.reverse .project-image {
+                order: 1;
+            }
+            .project-image {
+                 margin-bottom: 2rem;
+            }
+            .wip-banner {
+                top: 125px; /* Adjust banner position for stacked nav */
+                padding: 0.75rem 1rem;
             }
         }
-
-        .logo {
-            font-size: 2.5em;
-            font-weight: 700;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-
-        h1 {
-            font-size: clamp(2.5em, 6vw, 3.8em);
-            font-weight: 600;
-            margin-bottom: 0.3em;
-            line-height: 1.2;
-        }
-
-        p.subtitle {
-            font-size: clamp(1em, 3vw, 1.3em);
-            color: var(--secondary-color);
-            margin-bottom: 30px;
-            line-height: 1.6;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .separator {
-            width: 80px;
-            height: 3px;
-            background-color: var(--accent-color);
-            margin: 25px auto;
-            border-radius: 2px;
-        }
-
-        .message {
-            font-size: 1em;
-            color: var(--secondary-color);
-            line-height: 1.7;
-        }
-
-        .social-links {
-            margin-top: 30px;
-        }
-
-        .social-links a {
-            display: inline-block;
-            margin: 0 10px;
-            color: var(--secondary-color);
-            font-size: 1.5em;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--accent-color);
-            transform: translateY(-3px);
-        }
-        .github-link {
-            text-decoration: none;
-            color: var(--accent-color);
-            font-weight: 500;
-        }
-        .github-link:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            position: absolute;
-            bottom: 20px;
-            font-size: 0.9em;
-            color: rgba(255, 255, 255, 0.5);
-        }
-
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="logo">
-            JVR2022
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#hero" class="logo">jvr2022<span>.github.io</span></a>
+                <ul>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <h1>We're Launching Soon!</h1>
-        <p class="subtitle">
-            Our new website is currently under construction. We are working hard to give you the best experience.
-        </p>
+    </header>
 
-        <div class="separator"></div>
-
-        <div class="message">
-            <p>Stay tuned for something amazing. We promise it will be worth the wait!</p>
-            <p>In the meantime, you can check out my projects on
-                <a href="https://github.com/jvr2022" target="_blank" rel="noopener noreferrer" class="github-link">GitHub</a>.
-            </p>
-        </div>
+    <div class="wip-banner" id="wip-banner">
+        <p><strong>Note:</strong> This portfolio is actively under development. More projects and details are coming soon!</p>
+        <button class="close-btn" id="close-wip-banner" aria-label="Close">×</button>
     </div>
 
+    <main>
+        <section id="hero" style="border:none;">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Hi, I'm <span>jvr2022</span></h1>
+                    <p class="subtitle">A versatile developer building games, tools, websites, and bots. I also contribute to open-source projects and collaborate with other creators in the Roblox community.</p>
+                    <a href="#projects" class="btn">See My Work</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">What I <span>Do</span></h2>
+                <p class="section-subtitle">I have a diverse skill set that allows me to tackle challenges from different angles, whether it's in-game, on the web, or in a Discord server.</p>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <h3>Roblox Development</h3>
+                        <p>Creating engaging game mechanics and experiences with Lua.</p>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fa-solid fa-palette"></i>
+                        <h3>UI Design</h3>
+                        <p>Designing clean, intuitive, and effective user interfaces for games and apps.</p>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fa-brands fa-chrome"></i>
+                        <h3>Web & Extensions</h3>
+                        <p>Building full websites and powerful browser extensions from the ground up.</p>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fa-brands fa-discord"></i>
+                        <h3>Discord Bots</h3>
+                        <p>Developing custom bots to manage communities and add unique features.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">My <span>Projects</span></h2>
+                
+                <div class="project-entry">
+                    <div class="project-image">
+                        <img src="https://i.imgur.com/O3HMkrJ.png" alt="Steal a Member Game">
+                    </div>
+                    <div class="project-text">
+                        <span class="tag">Work in Progress</span>
+                        <h3>Steal a Member</h3>
+                        <p>An upcoming Roblox game inspired by "Steal a Brainrot," but with a unique twist: you collect members from my own Discord community. It's a project that combines game development with community engagement.</p>
+                    </div>
+                </div>
+                
+                <div class="project-entry reverse">
+                    <div class="project-image">
+                        <img src="https://i.imgur.com/5ohK8Ly.png" alt="UI Design Example">
+                    </div>
+                    <div class="project-text">
+                        <span class="tag">Design</span>
+                        <h3>Intuitive UI</h3>
+                        <p>I specialize in creating user interfaces that are both visually appealing and easy to navigate. This example showcases my focus on clean layouts, clear hierarchy, and a seamless user experience for Roblox games.</p>
+                    </div>
+                </div>
+
+                <div class="project-entry">
+                    <div class="project-image">
+                         
+                    </div>
+                    <div class="project-text">
+                        <span class="tag">Web Development</span>
+                        <h3>hgrb.nl</h3>
+                        <p>A live example of my web development capabilities. I handle both the frontend and backend to deliver a complete, functional website. This project demonstrates my skills beyond the Roblox platform.</p>
+                        <a href="https://hgrb.nl" target="_blank" class="btn">Visit Site</a>
+                    </div>
+                </div>
+
+                 <div class="project-entry reverse">
+                    <div class="project-image">
+                        <img src="https://i.imgur.com/QIvFOT1.png" alt="Roblox Server Finder Logo">
+                    </div>
+                    <div class="project-text">
+                        <span class="tag">Collaboration</span>
+                        <h3>Roblox Server Finder</h3>
+                        <p>I collaborated on this highly successful Chrome extension by Whim, which is used by over 100,000 people. My work involved contributing to a tool that directly enhances the Roblox web experience for a massive user base.</p>
+                        <a href="https://chromewebstore.google.com/detail/roblox-server-finder/mefbbckjmphgmmpfnmnliagiddhjcehb" target="_blank" class="btn">View on Store</a>
+                    </div>
+                </div>
+
+                <div class="project-entry">
+                    <div class="project-image">
+                        
+                    </div>
+                    <div class="project-text">
+                        <span class="tag">Automation & Tools</span>
+                        <h3>Custom Discord Bots</h3>
+                        <p>I develop custom Discord bots tailored to specific community needs. These bots can handle moderation, create unique engagement systems, and integrate with other services, showcasing my ability to build practical tools.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Get In <span>Touch</span></h2>
+                <p class="section-subtitle">I'm actively seeking new opportunities. If you're looking for a dedicated developer for your project, let's connect.</p>
+                <a href="https://github.com/jvr2022" target="_blank" class="btn">Contact on GitHub</a>
+            </div>
+        </section>
+    </main>
+
     <footer>
-        © <span id="year"></span> Jvr2022. All rights reserved.
+        <div class="container">
+            <p>© 2024 jvr2022. All Rights Reserved.</p>
+        </div>
     </footer>
 
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // WIP Banner close functionality
+            const wipBanner = document.getElementById('wip-banner');
+            const closeWipBannerBtn = document.getElementById('close-wip-banner');
 
+            if (closeWipBannerBtn) {
+                closeWipBannerBtn.addEventListener('click', () => {
+                    if (wipBanner) {
+                        wipBanner.style.transform = 'translateY(-100%)';
+                        setTimeout(() => {
+                           wipBanner.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            }
+
+            // API calls for profile pictures
+            const robloxUsername = 'joshuastoer';
+            const robloxPfpElement = document.getElementById('roblox-pfp');
+
+            async function fetchRobloxProfilePic() {
+                try {
+                    const userSearch = await fetch(`https://users.roblox.com/v1/users/search?keyword=${robloxUsername}&limit=10`);
+                    const searchData = await userSearch.json();
+                    const user = searchData.data.find(u => u.name.toLowerCase() === robloxUsername.toLowerCase());
+                    if (!user) return;
+                    const userId = user.id;
+
+                    const thumb = await fetch(`https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${userId}&size=150x150&format=Png&isCircular=false`);
+                    const thumbData = await thumb.json();
+                    
+                    if (robloxPfpElement && thumbData.data.length > 0) {
+                        robloxPfpElement.src = thumbData.data[0].imageUrl;
+                    }
+                } catch (error) {
+                    console.error('Failed to fetch Roblox profile picture:', error);
+                }
+            }
+            fetchRobloxProfilePic();
+        });
+    </script>
 </body>
 </html>
